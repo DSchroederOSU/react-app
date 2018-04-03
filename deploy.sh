@@ -2,7 +2,7 @@
 
 DEPLOY_USERNAME="schrodan"
 DEPLOY_HOST="flip.engr.oregonstate.edu"
-DEPLOY_DEST_DIR="public_html"
+DEPLOY_DEST_DIR="public_html/build"
 DEPLOY_SRC_DIR="build"
 
 STASH_SUCCEEDED=false
