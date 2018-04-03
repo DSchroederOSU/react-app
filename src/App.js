@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
 import ResumePage from './components/ResumePage';
 
-import { generateSitePath } from './SitePath';
+//import { generateSitePath } from './SitePath';
 
 var navLinks = [
     {
@@ -28,20 +28,19 @@ var navLinks = [
 
 class App extends Component {
 
-  render() {
-    return (
-        <Router>
-            <div>
-                <Navbar links={navLinks} />
-
-                <Switch>
-                    <Route exact path={'/'} component={HomePage} />
-                    <Route exact path={'/resume'} component={ResumePage} />
-                </Switch>
-            </div>
-        </Router>
-    );
-  }
+    render() {
+        return (
+            <Router>
+                <div>
+                    <Navbar links={navLinks} />
+                    <Switch>
+                        <Route exact path={'/'} component={HomePage} />
+                        <Route exact path={'/resume'} component={ResumePage} />
+                    </Switch>
+                </div>
+            </Router>
+        );
+    }
 }
 
 export default App;

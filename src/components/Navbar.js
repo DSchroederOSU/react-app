@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 
-import { generateSitePath } from '../SitePath';
+//import { generateSitePath } from '../SitePath';
 
 class Navbar extends Component {
 
@@ -25,6 +25,7 @@ class Navbar extends Component {
     }
 
     generateNavMenuComponent(menu) {
+        console.log(menu);
         if (menu) {
             return (
                 <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -54,26 +55,28 @@ class Navbar extends Component {
     }
 
     render() {
-        var headingItems = this.props.links.filter((item) => item.isHeading);
-        var nonHeadingItems = this.props.links.filter((item) => (!item.isHeading));
+        //var headingItems = this.props.links.filter((item) => item.isHeading);
+        //var nonHeadingItems = this.props.links.filter((item) => (!item.isHeading));
 
         return (
-            <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-                {headingItems.map((item, i) => (
-                    <div className="heading" key={i}>
-                        {this.generateLinkComponent(item)}
-                    </div>
-                ))}
-
+            <nav className="navbar navbar-expand-lg navbar-light" id="mainNav">
+                <NavLink className="nav-link js-scroll-trigger" exact to={'/'}>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg"
+                         width="30" height="30" alt=""></img>
+                </NavLink>
                 <div className="container">
                     <div className="collapse navbar-collapse" id="navbarResponsive">
-                        <ul className="navbar-nav ml-auto">
-                            {nonHeadingItems.map((item, i) => {
+                        <ul className="navbar-nav mr-auto">
+                            {this.props.links.map((item, i) => {
                                 var { menu, isLink, isRight } = item;
                                 var linkComponent = this.generateLinkComponent(item);
                                 var navMenuComponent = this.generateNavMenuComponent(menu);
                                 return (
-                                    <li key={i} className={"nav-item" + (navMenuComponent ? " navmenu" : "") + (isLink ? " navlink" : "")+ (isRight ? " right" : "")}>
+                                    <li key={i} className={"nav-item pt-2 pl-3 pr-3"
+                                        + (navMenuComponent ? " navmenu" : "")
+                                        + (isLink ? " navlink" : "")
+                                        + (isRight ? " right" : "")}>
+
                                         {linkComponent}
                                         {navMenuComponent}
                                     </li>
